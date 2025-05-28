@@ -1,4 +1,4 @@
-pipeline {
+plpipeline {
     agent {
         node {
             label 'maven'
@@ -11,7 +11,7 @@ environment {
     stages {
         stage ("build") {
             steps {
-                sh 'mvn clean package -X'
+                sh 'mvn clean deploy'
             }
         }
     }
