@@ -1,9 +1,9 @@
 pipeline {
-    agent {
+    agent any
         //node {
             //label 'maven'
         //}
-    }
+    
 
 environment {
     PATH = "/opt/apache-maven-3.9.9/bin:$PATH"
