@@ -1,3 +1,4 @@
+
 def registry = 'https://sparkmind.jfrog.io'
 
 pipeline {
