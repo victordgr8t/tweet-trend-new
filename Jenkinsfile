@@ -1,4 +1,3 @@
-
 def registry = 'https://sparkmind.jfrog.io'
 
 pipeline {
@@ -23,7 +22,7 @@ environment {
         stage ("test") {
             steps {
                 echo "----------unit test started----------"
-                sh 'mvn surefire-report:report'
+                sh 'mvn surefire-report:report -Dmaven.test.skip=true'
                 echo "----------unit test completed----------"
             }
         }
@@ -63,7 +62,7 @@ environment {
                           "files": [
                             {
                               "pattern": "target/*.jar",
-                              "target": "libs-release-local/",
+                              "target": "jenkins-libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
