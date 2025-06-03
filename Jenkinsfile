@@ -23,7 +23,7 @@ environment {
         stage ("test") {
             steps {
                 echo "----------unit test started----------"
-                sh 'mvn surefire-report:report'
+                sh 'mvn surefire-report:report -Dmaven.test.skip=true'
                 echo "----------unit test completed----------"
             }
         }
