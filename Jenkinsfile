@@ -66,7 +66,7 @@ environment {
                               "target": "jenkins-libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
-                              "exclusions": [ "*.repositories"]
+                              "exclusions": [ "*.sha1", "*.md5"]
                             }
                          ]
                      }"""
@@ -75,6 +75,30 @@ environment {
                      server.publishBuildInfo(buildInfo)
                      echo '<--------------- Jar Publish Ended --------------->'
 
+            }
+        }
+    }
+
+       def imageName = 'sparkmind.jfrog.io/sparkmind-docker-local/ttrend'
+   def version   = '2.1.2'
+    stage(" Docker Build ") {
+      steps {
+        script {
+           echo '<--------------- Docker Build Started --------------->'
+           app = docker.build(imageName+":"+version)
+           echo '<--------------- Docker Build Ends --------------->'
+        }
+      }
+    }
+
+            stage (" Docker Publish "){
+        steps {
+            script {
+               echo '<--------------- Docker Publish Started --------------->'
+                docker.withRegistry(registry, 'Jfrog-Credentials'){
+                    app.push()
+                }
+               echo '<--------------- Docker Publish Ended --------------->'
             }
         }
     }
