@@ -1,7 +1,7 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:25-jdk-slim
 
 # Create a user and group
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+#RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Set working directory
 WORKDIR /app
@@ -10,7 +10,7 @@ WORKDIR /app
 COPY target/demo-workshop-2.1.2.jar ttrend.jar
 
 # Change ownership so appuser can access files
-RUN chown -R appuser:appgroup /app
+#RUN chown -R appuser:appgroup /app
 
 # Switch to non-root user
 USER appuser
