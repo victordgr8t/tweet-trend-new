@@ -1,7 +1,7 @@
 FROM openjdk:25-jdk-slim
 
 # Create a user and group
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN groupadd appgroup && useradd -r -g appgroup appuser
 
 # Set working directory
 WORKDIR /app
