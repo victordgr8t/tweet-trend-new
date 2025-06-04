@@ -62,11 +62,11 @@ environment {
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "target/*.jar",
+                              "pattern": "2.1.2/*",
                               "target": "jenkins-libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
-                              "exclusions": [ "*.sha1", "*.md5"]
+                              "exclusions": [ "*.repositories"]
                             }
                          ]
                      }"""
