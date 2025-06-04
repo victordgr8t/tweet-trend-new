@@ -62,7 +62,7 @@ environment {
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "2.1.2/*",
+                              "pattern": "/root/.m2/repository/com/valaxy/demo-workshop/2.1.2/*",
                               "target": "jenkins-libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
