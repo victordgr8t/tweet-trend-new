@@ -13,7 +13,7 @@ COPY target/demo-workshop-2.1.2.jar ttrend.jar
 #RUN chown -R appuser:appgroup /app
 
 # Switch to non-root user
-USER appuser
+#USER appuser
 
 # Run your app
 ENTRYPOINT ["java", "-jar", "ttrend.jar"]
